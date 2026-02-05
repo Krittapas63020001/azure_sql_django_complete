@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xzk$v$q2m1-^3b+^ck!6_hk4gmm$47c8zyzo@-o35spu*+shd$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -91,12 +92,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'free-sql-db-0809162',
-        'USER': 'krittapas63020001@gmail.com@krittapas63020001',
+        'USER': 'krittapas63020001@gmail.com@krittapas63020001', # อันนี้ถูกแล้วตามรูป
         'PASSWORD': 'Pas19646',
         'HOST': 'krittapas63020001.database.windows.net',
         'PORT': '1433',
         'OPTIONS': {
+            # เปลี่ยนจาก 17 เป็น 18 ตามที่ Azure แนะนำ
             'driver': 'ODBC Driver 18 for SQL Server',
+            # Driver 18 บังคับเรื่อง Encrypt เข้มงวดขึ้น
+            # แนะนำให้ใส่ TrustServerCertificate=yes ไว้ก่อนเพื่อกันปัญหาเรื่อง Certificate
             'extra_params': 'Encrypt=yes;TrustServerCertificate=yes',
         },
    },
