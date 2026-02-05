@@ -77,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'azure_project.wsgi.application'
 
-
+#Server=tcp:krittapas63020001.database.windows.net,1433;Initial Catalog=free-sql-db-0809162;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication="Active Directory Default";
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -90,23 +90,24 @@ WSGI_APPLICATION = 'azure_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'bearlab-sql-db',
-        'USER': 'bearlab-admin',
-        'PASSWORD': 'P@ss1234',
-        'HOST': 'bearlab-sql-server.database.windows.net',
+        'NAME': 'free-sql-db-0809162',
+        'USER': 'krittapas63020001@gmail.com@krittapas63020001',
+        'PASSWORD': 'Pas19646',
+        'HOST': 'krittapas63020001.database.windows.net',
         'PORT': '1433',
         'OPTIONS': {
             'driver': 'ODBC Driver 18 for SQL Server',
+            'extra_params': 'Encrypt=yes;TrustServerCertificate=yes',
         },
-    },
+   },
 }
 
 
 import urllib.parse
 
 # MongoDB Configuration
-mongo_username = urllib.parse.quote_plus('bearlab')
-mongo_password = urllib.parse.quote_plus('P@ss1234')
+mongo_username = urllib.parse.quote_plus('krittapas')
+mongo_password = urllib.parse.quote_plus('Phas19646')
 # MONGO_URI = 'mongodb://localhost:27017/'
 MONGO_URI = f'mongodb+srv://{mongo_username}:{mongo_password}@bearlab-mongodb.global.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000'
 MONGO_DB_NAME = 'django_store_reviews'
